@@ -1,8 +1,16 @@
 package dagger.modules;
 
 import dagger.Module;
+import dagger.Provides;
+import dagger.modules.dependencies.SingletonDeps;
 
-@Module
-public class SingletonModule {
+import javax.inject.Singleton;
 
-}
+//@Module
+//public class SingletonModule {
+////    @Provides
+////    @Singleton
+////    public SingletonDeps provideSingletonDeps() {
+////        return new SingletonDeps();
+////    }
+//}
