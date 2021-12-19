@@ -32,5 +32,4 @@ public interface RequestComponent {
                 @BindsInstance Session session,
                 @BindsInstance InnerRequest innerRequest);
     }
-//    @Subcomponent.
 }
