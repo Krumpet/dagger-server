@@ -22,7 +22,7 @@ public interface SingletonComponent {
 //    public RequestHandler provideRequestHandler();
 
     @RequestScope
-    public RequestComponent requestComponent(RequestModule module);
+    public RequestComponent.RequestScopeFactory requestComponentFactory();
 
 //    @RequestScope
 //    public Config provideRequestConfig(Config config);

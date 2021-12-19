@@ -15,12 +15,12 @@ public class Server {
 
     public Response handleRequest(Request request) {
         return getRequestComponent(request).requestHandler().execute();
-//        return null;
 //        return DaggerSingletonComponent.builder().;
 //        return requestContextBuilder.request(request).build().provideRequestHandler().execute();
     }
 
     private RequestComponent getRequestComponent(Request request) {
-        return singletonComponent.requestComponent(new RequestModule(request));
+//        return singletonComponent.requestComponent(new RequestModule(request));
+        return singletonComponent.requestComponentFactory().getRequestComponent(request, request.config, request.session, request.innerRequest);
     }
 }

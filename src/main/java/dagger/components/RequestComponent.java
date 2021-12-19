@@ -1,5 +1,6 @@
 package dagger.components;
 
+import dagger.BindsInstance;
 import dagger.Component;
 import dagger.Subcomponent;
 import dagger.modules.RequestModule;
@@ -11,7 +12,7 @@ import dagger.modules.dependencies.handlers.RequestHandler;
 import dagger.scopes.RequestScope;
 
 @RequestScope
-@Subcomponent(modules = RequestModule.class)
+@Subcomponent(/*modules = RequestModule.class*/)
 public interface RequestComponent {
     public Request provideRequest();
 
@@ -22,4 +23,14 @@ public interface RequestComponent {
     public Session provideSession();
 
     public RequestHandler requestHandler();
+
+    @Subcomponent.Factory
+    public interface RequestScopeFactory {
+        RequestComponent getRequestComponent(
+                @BindsInstance Request request,
+                @BindsInstance Config config,
+                @BindsInstance Session session,
+                @BindsInstance InnerRequest innerRequest);
+    }
+//    @Subcomponent.
 }
