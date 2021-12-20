@@ -25,7 +25,7 @@ public interface RequestComponent {
     public RequestHandler requestHandler();
 
     @Subcomponent.Factory
-    public interface RequestScopeFactory {
+    public interface Factory {
         RequestComponent getRequestComponent(
                 @BindsInstance Request request,
                 @BindsInstance Config config,

@@ -3,8 +3,9 @@ package dagger.components;
 import dagger.BindsInstance;
 import dagger.Component;
 import dagger.Provides;
-import dagger.modules.PeriodicModule;
+//import dagger.modules.PeriodicModule;
 import dagger.modules.RequestModule;
+import dagger.modules.SingletonModule;
 import dagger.modules.dependencies.Config;
 import dagger.modules.dependencies.Request;
 import dagger.modules.dependencies.SingletonDeps;
@@ -15,22 +16,36 @@ import dagger.scopes.RequestScope;
 import javax.inject.Singleton;
 
 @Singleton
-@PeriodicScope
-@Component(modules = PeriodicModule.class)
+//@PeriodicScope
+@Component(/*modules = SingletonModule.class*/)
 public interface SingletonComponent {
     @Singleton
     public SingletonDeps provideSingletonDeps();
 
+    RequestRouter router();
+
+    PeriodicComponent.Builder getPeriodicBuilder();
+
 //    @Singleton
 //    public RequestHandler provideRequestHandler();
 
-    @RequestScope
-    public RequestComponent.RequestScopeFactory requestComponentFactory();
+//    @RequestScope
+//    public RequestComponent.RequestScopeFactory requestComponentFactory();
 
-    @Component.Factory
-    public interface PeriodicBuilder {
-        public SingletonComponent build(PeriodicModule periodicModule);
-    }
+//    @Component.Builder
+//    public interface Builder {
+//        public SingletonComponent build();
+//
+//        Builder periodicComponent(@BindsInstance PeriodicComponent periodicComponent);
+//    }
+
+//    @PeriodicScope
+//    public PeriodicComponent periodicComponent();
+
+//    @Component.Factory
+//    public interface PeriodicBuilder {
+//        public SingletonComponent build(PeriodicModule periodicModule);
+//    }
 
 //    @PeriodicScope
 //    public PeriodicComponent periodicComponent(PeriodicModule periodicModule);
