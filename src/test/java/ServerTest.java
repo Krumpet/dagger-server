@@ -1,5 +1,10 @@
+import dagger.modules.dependencies.Config;
+import dagger.modules.dependencies.InnerRequest;
+import dagger.modules.dependencies.Request;
+import dagger.modules.dependencies.Session;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import responses.Response;
 
 import static org.junit.jupiter.api.Assertions.*;
 
