@@ -2,11 +2,13 @@ package dagger.components.RequestComponents;
 
 import dagger.BindsInstance;
 import dagger.Subcomponent;
+import dagger.modules.RoutingRequestModule;
 import dagger.modules.dependencies.*;
+import dagger.modules.dependencies.handlers.RequestHandler;
 import dagger.scopes.RequestScope;
 
 @RequestScope
-@Subcomponent
+@Subcomponent(modules = RoutingRequestModule.class)
 public abstract class RoutingRequestComponent implements BaseRequestComponent<RoutingConfig, RoutingSession, RoutingRequest> {
     @Override
     public RoutingConfig getRConfig() {
@@ -38,8 +40,10 @@ public abstract class RoutingRequestComponent implements BaseRequestComponent<Ro
         return routingRequest.request;
     }
 
+    abstract public RequestHandler getRequestHandler();
+
     @Subcomponent.Factory
     public interface Factory {
-        public RoutingRequestComponent build(@BindsInstance RoutingRequest request, @BindsInstance RoutingConfig routingConfig, @BindsInstance RoutingSession routingSession);
+        public RoutingRequestComponent build(@BindsInstance RoutingRequest request);
     }
 }

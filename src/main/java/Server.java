@@ -4,8 +4,7 @@
 import dagger.components.*;
 //import dagger.modules.PeriodicModule;
 import dagger.modules.RequestModule;
-import dagger.modules.dependencies.Request;
-import dagger.modules.dependencies.SingletonDeps;
+import dagger.modules.dependencies.*;
 import dagger.modules.dependencies.handlers.RequestHandler;
 import responses.Response;
 
@@ -29,7 +28,8 @@ public class Server {
 //    SingletonComponent.Builder requestContextBuilder = DaggerSingletonComponent.builder();
 
     public Response handleRequest(Request request) {
-        return this.notInjected.handleRequest(request);
+        RoutingRequest routingRequest = new RoutingRequest(new RoutingConfig(request.config), new RoutingSession(request.session), request);
+        return this.notInjected.handleRequest(routingRequest);
 //        return getRequestComponent(request).requestHandler().execute();
 //        return DaggerSingletonComponent.builder().;
 //        return requestContextBuilder.request(request).build().provideRequestHandler().execute();

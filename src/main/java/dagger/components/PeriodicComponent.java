@@ -3,6 +3,7 @@ package dagger.components;
 import dagger.BindsInstance;
 import dagger.Component;
 import dagger.Subcomponent;
+import dagger.components.RequestComponents.RoutingRequestComponent;
 import dagger.modules.PeriodicModule;
 import dagger.modules.dependencies.PeriodicDependency;
 import dagger.modules.dependencies.Request;
@@ -14,7 +15,8 @@ import dagger.scopes.RequestScope;
 public interface PeriodicComponent {
     public PeriodicDependency providePeriodicDependency();
 
-    public RequestComponent.Factory provideRequestComponentFactory();
+//    public RequestComponent.Factory provideRequestComponentFactory();
+    public RoutingRequestComponent.Factory provideRoutingRequestComponentFactory();
 
     @Subcomponent.Builder
     public interface Builder {
