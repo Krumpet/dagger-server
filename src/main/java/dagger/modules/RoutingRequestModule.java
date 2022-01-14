@@ -1,5 +1,6 @@
 package dagger.modules;
 
+import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 import dagger.modules.dependencies.*;
