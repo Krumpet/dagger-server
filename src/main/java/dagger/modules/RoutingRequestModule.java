@@ -5,7 +5,7 @@ import dagger.Provides;
 import dagger.modules.dependencies.*;
 
 @Module
-public abstract class RoutingRequestModule {
+public interface RoutingRequestModule {
     @Provides
     static Request getRequest(RoutingRequest request) {
         return request.request;
